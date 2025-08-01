@@ -46,13 +46,13 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+    archiveClassifier.set('dev-shadow')
 }
 
 remapJar {
-    input.set shadowJar.archiveFile
-    dependsOn shadowJar
-    classifier null
+    input.set(shadowJar.archiveFile)  // 保持不变（已使用正确的 setter 方式）
+    dependsOn(shadowJar)             // 可选：括号更规范，但不影响功能
+    setClassifier(null)              // 关键修改：将 classifier null 改为 setClassifier(null)
 }
 
 components.java {
