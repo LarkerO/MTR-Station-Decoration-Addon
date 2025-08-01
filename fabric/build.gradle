@@ -46,7 +46,7 @@ shadowJar {
 remapJar {
     input.set(shadowJar.archiveFile)  // 保持不变（已使用正确的 setter 方式）
     dependsOn(shadowJar)             // 可选：括号更规范，但不影响功能
-    setClassifier(null)              // 关键修改：将 classifier null 改为 setClassifier(null)
+    archiveClassifier.set(null)  // 关键修改：使用 archiveClassifier 而非 classifier
 }
 
 components.java {
