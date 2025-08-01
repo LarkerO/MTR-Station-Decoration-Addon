@@ -5,14 +5,14 @@
 # against bad commits.
 # 来自于Zbx1425
 
-name: Build
+name: Build Mods
 on: [ pull_request, push ]
 
 jobs:
   build:
     strategy:
       matrix:
-        minecraft: [1.18.2, 1.19.3, 1.20.1 ]
+        minecraft: [ 1.18.2, 1.19.3, 1.20.1 ]
         loader: [ fabric, forge ]
     runs-on: ubuntu-latest
     steps:
